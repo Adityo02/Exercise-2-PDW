@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body{
+    background-image: url(https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+
+    .container {
+      max-width: 500px;
+      margin-top: 50px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      background: transparent;
+      backdrop-filter: blur(5px);
+      color: azure;
+      font-family: cursive;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    #result {
+      margin-top: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+    }
+
+    #result p {
+      margin-bottom: 10px;
+    }
+  </style>
+  <title>Form Saran</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Form Saran</h1>
+    <form id="surveyForm">
+      <div class="form-group">
+        <label for="name">Nama :</label>
+        <input type="text" class="form-control" placeholder="Nama Lengkap" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Umur :</label>
+        <input type="number" class="form-control" placeholder="Umur" id="age" name="age" required>
+      </div>
+      <div class="form-group">
+        <label for="batch">Angkatan :</label>
+        <select class="form-control" id="batch" name="batch">
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Tanggal :</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+      <!-- Tambahkan radio box di sini -->
+      <div class="form-group">
+        <label>Jenis Kelamin :</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="Laki-laki" value="Laki-laki" required>
+          <label class="form-check-label" for="Laki-laki">
+            Laki-laki
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="Perempuan" value="Perempuan" required>
+          <label class="form-check-label" for="Perempuan">
+            Perempuan
+          </label>
+        </div>
+        <div class="form-text">
+          <label for="alamat">Saran :</label><br>
+            <textarea placeholder="Tulis Saranmu disini" name="alamat" id="alamat" cols="45" rows="5"></textarea>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var age = document.getElementById('age').value;
+      var batch = document.getElementById('batch').value;
+      var date = document.getElementById('date').value;
+      var gender = document.querySelector('input[name="gender"]:checked').value;
+      var result = document.getElementById('result');
+      alert(
+                "Nama : " + name +
+                "\nEmail : " + email +
+                "\nUmur : " + age + "Tahun" +
+                "\nAngkatan : " + batch +
+                "\nTanggal : " + date +
+                "\nJenis Kelamin : " + gender
+            );
+    });
+  </script>
+</body>
+</html>
